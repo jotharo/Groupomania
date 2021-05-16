@@ -1,6 +1,6 @@
 
 module.exports = (sequelize, DataTypes) => {
-    const like = sequelize.define('comment', {
+    const comment = sequelize.define('comment', {
         id: {
             allowNull: false,
             autoIncrement: true,
@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
       freezeTableName: true
     })
   
-    like.associate = function(models) {
+    comment.associate = function(models) {
         comment.belongsTo(models.user, { foreignKey: 'userId' })
         comment.belongsTo(models.post, { foreignKey: 'postId' })
     }
